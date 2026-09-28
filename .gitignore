@@ -13,3 +13,5 @@ Thumbs.db
 # Debugging output
 *.log
 vgcore.*
+# Compiled executable
+campusguard
