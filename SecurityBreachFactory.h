@@ -8,7 +8,7 @@ class SecurityBreachFactory : public Factory
 {
 public:
     ~SecurityBreachFactory() override = default;
-    // Command* create(Team& team) override;
+    Command *create(Team &team) override;
 };
 
 #endif

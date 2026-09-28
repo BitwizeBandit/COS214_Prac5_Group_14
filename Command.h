@@ -1,14 +1,15 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
-// class Team;
+class Team;
 
 class Command
 {
 protected:
-    // Team& team;
+    Team &team;
+
 public:
-    // Command(Team& team);
+    Command(Team &team);
     virtual ~Command() = default;
     virtual void solve() = 0;
 };

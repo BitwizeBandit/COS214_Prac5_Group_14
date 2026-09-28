@@ -7,7 +7,7 @@
 class MedicalEmergencyFactory : public Factory {
 public:
     ~MedicalEmergencyFactory() override = default;
-    // Command* create(Team& team) override;
+    Command* create(Team& team) override;
 };
 
 #endif

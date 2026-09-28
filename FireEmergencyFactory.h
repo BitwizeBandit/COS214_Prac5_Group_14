@@ -8,7 +8,7 @@ class FireEmergencyFactory : public Factory
 {
 public:
     ~FireEmergencyFactory() override = default;
-    // Command *create(Team &team) override;
+    Command *create(Team &team) override;
 };
 
 #endif

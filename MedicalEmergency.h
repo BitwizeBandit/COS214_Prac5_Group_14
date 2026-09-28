@@ -6,7 +6,7 @@
 class MedicalEmergency : public Command
 {
 public:
-    // MedicalEmergency(Team& team);
+    MedicalEmergency(Team& team);
     ~MedicalEmergency() override = default;
     void solve() override;
 };

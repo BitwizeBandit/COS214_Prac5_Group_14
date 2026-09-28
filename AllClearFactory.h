@@ -8,7 +8,7 @@ class AllClearFactory : public Factory
 {
 public:
     ~AllClearFactory() override = default;
-    // Command *create(Team &team) override;
+    Command *create(Team &team) override;
 };
 
 #endif

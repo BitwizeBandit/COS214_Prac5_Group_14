@@ -6,7 +6,7 @@
 class AllClear : public Command
 {
 public:
-    // AllClear(Team& team);
+    AllClear(Team &team);
     virtual ~AllClear() = default;
     void solve() override; // Executes the all clear command on the receiver
 };

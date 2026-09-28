@@ -6,7 +6,7 @@
 class SecurityBreach : public Command
 {
 public:
-    // SecurityBreach(Team& team);
+    SecurityBreach(Team &team);
     ~SecurityBreach() override = default;
     void solve() override;
 };
