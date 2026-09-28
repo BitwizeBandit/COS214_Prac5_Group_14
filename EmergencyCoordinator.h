@@ -1,5 +1,5 @@
-#ifndef EMERGENCYCOORDINATOR_H
-#define EMERGENCYCOORDINATOR_H
+#ifndef EMERGENCY_COORDINATOR_H
+#define EMERGENCY_COORDINATOR_H
 
 #include <vector>
 #include <functional>
@@ -20,10 +20,10 @@ class EmergencyCoordinator : public Mediator
     public:
         EmergencyCoordinator(SecurityBuilding& s, MedicalBuilding& m, Facilities& f);
  
-        void notify(Building& originator) override;
+        void notify(Building& originator, MediatorEvent event) override;
  
         ~EmergencyCoordinator() override;
 
 };
 
-#endif //EMERGENCYCOORDINATOR_H
+#endif //EMERGENCY_COORDINATOR_H

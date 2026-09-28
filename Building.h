@@ -10,11 +10,16 @@ class Building
         bool locked;
         bool occupied;
 
+	// Tracks if this building is currently in an evacuated state, so a
+    // second evacuate()/receiveEvacuationOrder() call while already evacuated is a safe no op instead of rerunning local behaviour
+		bool evacuated;
+
         // a Building can be constructed before its mediator is connected, like with setMediator()
         Mediator* mediator;
 
         // Concr Colleagues impl their own local evac behaviour here
         virtual void doEvacuate() = 0;
+		virtual void doAllClear() = 0;
 
     public:
         Building();
@@ -32,9 +37,18 @@ class Building
         // If no Mediator has been registered yet, this is a no op rather than a crash
         void evacuate();
 
+		// Called by a Team (or any client) once an incident is resolved
+		// Symmetric to evacuate()
+		void allClear();
+
         // Called by the Mediator on the Other Colleagues
         // Running the local evac only, does not call notify() again, so this cannot recurse
         void receiveEvacuationOrder();
+
+		// Called By the Mediator on the Other Colleagues during an all clear
+		// fan out. Local only, so does not call notify() again
+		void receiveAllClearOrder();
 };
 
-#endif // BUILDING_H
+#endif //BUILDING_H
+

@@ -8,6 +8,7 @@ taskforge
 .vscode/
 .DS_Store
 Thumbs.db
+*.sw?
 
 # Debugging output
 *.log

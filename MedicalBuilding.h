@@ -8,6 +8,7 @@ class MedicalBuilding : public Building
 {
     protected:
         void doEvacuate() override;
+        void doAllClear() override;
     
     public:
         MedicalBuilding();

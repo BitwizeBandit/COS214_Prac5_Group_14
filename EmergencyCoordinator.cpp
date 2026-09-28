@@ -8,13 +8,19 @@ EmergencyCoordinator::EmergencyCoordinator(SecurityBuilding& s, MedicalBuilding&
 
 }
 
-void EmergencyCoordinator::notify(Building& originator) 
+void EmergencyCoordinator::notify(Building& originator, MediatorEvent event) 
 {
     for(Building& building : colleagues)
     {
         if(&building != &originator)
         {
-            building.receiveEvacuationOrder();
+            if (event == MediatorEvent::EVACUATE) 
+            {
+                building.receiveEvacuationOrder();
+
+            } else {
+                building.receiveAllClearOrder();
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 #include "Building.h"
 
-Building::Building(): locked(false), occupied(false), mediator(nullptr) {}
+Building::Building(): locked(false), occupied(false), evacuated(false), mediator(nullptr) {}
 
 Building::~Building() {}
 
@@ -26,11 +26,33 @@ bool Building::getLocked() const
 // If no Mediator has been registered yet, this is a no op rather than a crash
 void Building::evacuate()
 {
+    if (evacuated) 
+    {
+        return; // already evaced, so its redundant call, I handled as a no op
+    }
+
+    evacuated = true;
     doEvacuate();
 
-    if(mediator != nullptr)
+    if (mediator != nullptr) 
     {
-        mediator->notify(*this);
+        mediator->notify(*this, MediatorEvent::EVACUATE);
+    }
+}
+
+void Building::allClear() 
+{
+    if (!evacuated) 
+    {
+        return; // nothing to clear, so its redundant call, Im handling as a no op
+    }
+
+    evacuated = false;
+    doAllClear();
+
+    if (mediator != nullptr) 
+    {
+        mediator->notify(*this, MediatorEvent::ALL_CLEAR);
     }
 }
 
@@ -38,5 +60,22 @@ void Building::evacuate()
 // Running the local evac only, does not call notify() again, so this cannot recurse
 void Building::receiveEvacuationOrder()
 {
+    if (evacuated) 
+    {
+        return;
+    }
+
+    evacuated = true;
     doEvacuate();
+}
+
+void Building::receiveAllClearOrder() 
+{
+    if (!evacuated) 
+    {
+        return;
+    }
+    
+    evacuated = false;
+    doAllClear();
 }

@@ -8,6 +8,7 @@ class SecurityBuilding : public Building
 {
     protected:
         void doEvacuate() override;
+        void doAllClear() override;
     
     public:
         SecurityBuilding();
