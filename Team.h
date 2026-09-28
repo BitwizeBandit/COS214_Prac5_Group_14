@@ -14,8 +14,9 @@ using namespace std;
 class Team
 {
 	protected:
-		bool deployed;
+		bool deployed = false;
 	public:
+		virtual ~Team() = default;
 		virtual void dispatch(IncidentType) = 0;
 		virtual void allClear() = 0;
 		virtual bool isDeployed() { return deployed; }
