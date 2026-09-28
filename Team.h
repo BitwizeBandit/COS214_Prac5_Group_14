@@ -55,9 +55,10 @@ class SecurityTeam : public Decorator
 		void allClear()
 		{
 			if (deployed)
-			{
 				cout << "Security team returned" << endl;
-				team->allClear();
+			team->allClear();	// always pass the allclear down the chain
+			if (deployed)
+			{
 				building->allClear();
 				deployed = false;
 			}
@@ -85,9 +86,10 @@ class MedicalTeam : public Decorator
 		void allClear()
 		{
 			if (deployed)
-			{
 				cout << "Medical team returned" << endl;
-				team->allClear();
+			team->allClear();	// always pass the all-clear down the chain
+			if (deployed)
+			{
 				building->allClear();
 				deployed = false;
 			}
@@ -114,9 +116,10 @@ class FacilitiesTeam : public Decorator
 		void allClear()
 		{
 			if (deployed)
-			{
 				cout << "Facilities team returned" << endl;
-				team->allClear();
+			team->allClear();	// always pass the all-clear down the chain
+			if (deployed)
+			{
 				building->allClear();
 				deployed = false;
 			}
