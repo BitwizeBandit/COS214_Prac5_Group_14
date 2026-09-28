@@ -1,4 +1,3 @@
-#include "Team.h"
 #include "WorkFlow.h"
 
 int main()
@@ -6,6 +5,5 @@ int main()
 	WorkFlow workFlow;
 	workFlow.fireDrill();
 	workFlow.medicalEmergency();
+	workFlow.securityBreach();
 }
-
-
