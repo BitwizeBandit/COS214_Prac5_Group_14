@@ -1,0 +1,9 @@
+#include "WorkFlow.h"
+
+int main()
+{
+	WorkFlow workFlow;
+	workFlow.fireDrill();
+	workFlow.medicalEmergency();
+	workFlow.securityBreach();
+}

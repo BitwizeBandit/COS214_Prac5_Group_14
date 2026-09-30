@@ -2,7 +2,7 @@ CXX := g++
 CXXFLAGS := -std=c++11 -Wall -Wextra
 DEBUGFLAGS := -g -O0
  
-SRC_DIR := src
+SRC_DIR := .
 BUILD_DIR := build
 TARGET := campusguard
  
